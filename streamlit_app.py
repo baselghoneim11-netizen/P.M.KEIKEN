@@ -15,15 +15,60 @@ st.set_page_config(
 # Custom CSS per riflettere il design industrial/enterprise (Palette Slate & Emerald)
 st.markdown("""
     <style>
-    .main { background-color: #0f172a; color: #f8fafc; }
-    .sidebar .sidebar-content { background-color: #1e293b; }
-    .stMetric { background-color: #1e293b; padding: 15px; border-radius: 10px; border: 1px solid #334155; }
-    .stAlert { background-color: #1e293b; border: 1px solid #475569; color: #f8fafc; }
-    div.stButton > button { background-color: #0d9488; color: white; border-radius: 6px; font-weight: 600; border: none; }
-    div.stButton > button:hover { background-color: #0f766e; }
+    /* Reset font e background */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+    
+    html, body, [class*="st-emotion-cache"] {
+        font-family: 'Inter', sans-serif;
+    }
+    
+    /* Background principale */
+    .stApp {
+        background-color: #050505;
+        color: #e2e8f0;
+    }
+    
+    /* Sidebar pulita */
+    [data-testid="stSidebar"] {
+        background-color: #0f172a;
+        border-right: 1px solid #1e293b;
+    }
+    
+    /* Card design - Miglioramento dei container */
+    div[data-testid="stMetric"] {
+        background-color: #1e293b;
+        padding: 20px;
+        border-radius: 16px;
+        border: 1px solid #334155;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    }
+    
+    /* Bottoni stile Industrial */
+    div.stButton > button {
+        background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+        color: white;
+        border-radius: 8px;
+        padding: 0.6rem 1.5rem;
+        border: none;
+        transition: transform 0.2s;
+    }
+    div.stButton > button:hover {
+        transform: translateY(-2px);
+    }
+    
+    /* Miglioramento della Chat */
+    [data-testid="stChatMessage"] {
+        background-color: #1e293b;
+        border-radius: 12px;
+        padding: 15px;
+    }
+    
+    /* Nascondi header Streamlit per un look più app-like */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
     </style>
 """, unsafe_allow_html=True)
-
 # ==========================================
 # INIZIALIZZAZIONE STATO (Database in Memoria)
 # ==========================================
